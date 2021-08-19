@@ -53,7 +53,27 @@ class Session:
         return comics_list.ComicsList(self.call(["previous"], params={}))
 
     def future_releases(self) -> comics_list.ComicsList:
+        """
+        Method to request a list of the next weeks comics.
+
+        :return: A list of :class:`Comic` objects.
+        :rtype: ComicsList
+        """
         return comics_list.ComicsList(self.call(["future"], params={}))
+
+    def release_date(self, release_date: str) -> comics_list.ComicsList:
+        """
+        Method to request comics with a specific release date.
+
+        :param release_date: Date comics where released in iso8601 format (ie: 2016-02-17).
+        :type params: str
+
+        :return: A list of :class:`Comic` objects.
+        :rtype: ComicsList
+        """
+        return comics_list.ComicsList(
+            self.call(["release_date", release_date], params={})
+        )
 
     def query(
         self,
