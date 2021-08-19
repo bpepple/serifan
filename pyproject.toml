@@ -6,6 +6,8 @@ authors = ["Brian Pepple <bdpepple@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+marshmallow = "^3.13.0"
+requests = "^2.26.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
