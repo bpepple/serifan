@@ -1,5 +1,4 @@
 import platform
-from collections import OrderedDict
 from typing import Optional
 from urllib.parse import urlencode
 
@@ -25,9 +24,7 @@ class Session:
         :param str endpoint: The endpoint to request information from.
         :param dict params: Parameters to add to the request.
         """
-        if params is None:
-            params = {}
-
+        params = {} if params is None else urlencode(params)
         url = self.api_url.format("/".join(str(e) for e in endpoint))
 
         try:
@@ -57,3 +54,40 @@ class Session:
 
     def future_releases(self) -> comics_list.ComicsList:
         return comics_list.ComicsList(self.call(["future"], params={}))
+
+    def query(
+        self,
+        publisher: Optional[str] = None,
+        title: Optional[str] = None,
+        creators: Optional[str] = None,
+        release_date: Optional[str] = None,
+    ) -> comics_list.ComicsList:
+        """
+        Method to search for a list of comics.
+
+        :param publisher: Publisher to search by.
+        :type params: str, optional
+
+        :param title: Title to search for.
+        :type params: str, optional
+
+        :param creators: Creator to search for.
+        :type params: str, optional
+
+        :param release_date: Date comics where released in iso8601 format (ie: 2016-02-17).
+        :type params: str, optional
+
+        :return: A list of :class:`Comic` objects.
+        :rtype: ComicsList
+        """
+        params = {}
+        if publisher:
+            params["publisher"] = publisher
+        if title:
+            params["title"] = title
+        if creators:
+            params["creators"] = creators
+        if release_date:
+            params["release_date"] = release_date
+
+        return comics_list.ComicsList(self.call(["query"], params=params))
