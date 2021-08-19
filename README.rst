@@ -1,0 +1,22 @@
+=======
+Serifan
+=======
+
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/psf/black
+
+Quick Description
+-----------------
+A python wrapper for the shortboxed.com_ API.
+
+.. _shortboxed.com: https://shortboxed.com/
+
+Bugs/Requests
+-------------
+  
+Please use the `GitHub issue tracker <https://github.com/bpepple/serifan/issues>`_ to submit bugs or request features.
+
+License
+-------
+
+This project is licensed under the `GPLv3 License <LICENSE>`_.
