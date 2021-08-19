@@ -1,5 +1,6 @@
 import platform
 from collections import OrderedDict
+from typing import Optional
 from urllib.parse import urlencode
 
 import requests
@@ -26,11 +27,6 @@ class Session:
         """
         if params is None:
             params = {}
-
-        cache_params = ""
-        if params:
-            ordered_params = OrderedDict(sorted(params.items(), key=lambda t: t[0]))
-            cache_params = "?{}".format(urlencode(ordered_params))
 
         url = self.api_url.format("/".join(str(e) for e in endpoint))
 
