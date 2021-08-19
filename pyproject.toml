@@ -36,4 +36,5 @@ line-length = 95
 target-version = [ "py38",]
 
 [tool.poetry.urls]
+"Homepage" = "https://github.com/bpepple/serifan
 "Bug Tracker" = "https://github.com/bpepple/serifan/issues"
