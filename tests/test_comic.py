@@ -5,6 +5,9 @@ from serifan import comics_list
 
 def test_comics_list(comic_list_response):
     res = comics_list.ComicsList(comic_list_response)
+    comic_iter = iter(res)
+    assert next(comic_iter).title == "BITTER ROOT #15 CVR A GREENE (MR)"
+    assert next(comic_iter).title == "BITTER ROOT #15 CVR B CONLEY CURIEL (MR)"
     assert len(res) == 2
     assert res[0].publisher == "IMAGE COMICS"
     assert res[1].title == "BITTER ROOT #15 CVR B CONLEY CURIEL (MR)"
