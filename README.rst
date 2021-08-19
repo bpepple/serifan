@@ -36,6 +36,10 @@ Example Usage
     for i in results:
         print(f"{i.title}")
 
+Documentation
+-------------
+
+Coming soon!
  
 Bugs/Requests
 -------------
