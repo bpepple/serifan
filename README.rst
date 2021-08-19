@@ -11,6 +11,32 @@ A python wrapper for the shortboxed.com_ API.
 
 .. _shortboxed.com: https://shortboxed.com/
 
+Installation
+------------
+
+PyPi
+~~~~
+
+.. code:: bash
+
+  $ pip3 install --user serifan
+
+Example Usage
+-------------
+.. code-block:: python
+
+    import serifan
+
+    m = serifan.api()
+
+    # Get this weeks comic releases.
+    results = m.new_releases()
+
+    # Print the results
+    for i in results:
+        print(f"{i.title}")
+
+ 
 Bugs/Requests
 -------------
   
