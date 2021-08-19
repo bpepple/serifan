@@ -71,9 +71,7 @@ class Session:
         :return: A list of :class:`Comic` objects.
         :rtype: ComicsList
         """
-        return comics_list.ComicsList(
-            self.call(["release_date", release_date], params={})
-        )
+        return comics_list.ComicsList(self.call(["release_date", release_date], params={}))
 
     def query(
         self,
