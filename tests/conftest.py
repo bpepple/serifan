@@ -3,7 +3,7 @@ import datetime
 import pytest
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def comic_list_response():
     return {
         "comics": [
@@ -29,7 +29,7 @@ def comic_list_response():
     }
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def sb_dates_response():
     return {
         "dates": [
@@ -42,7 +42,7 @@ def sb_dates_response():
     }
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def sb_cleaned_dates():
     return [
         datetime.date(2021, 8, 4),
