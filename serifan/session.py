@@ -76,7 +76,7 @@ class Session:
         """
         return comics_list.ComicsList(self.call(["release_date", release_date], params={}))
 
-    def release_dates(self) -> List[date]:
+    def available_release_dates(self) -> List[date]:
         """
         Method to retrieve list of release dates.
         """
