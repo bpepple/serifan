@@ -6,6 +6,8 @@ import requests
 
 from serifan import __version__, comics_list, exceptions
 
+from .utils import list_strings_to_dates
+
 
 class Session:
     """
@@ -72,6 +74,12 @@ class Session:
         :rtype: ComicsList
         """
         return comics_list.ComicsList(self.call(["release_date", release_date], params={}))
+
+    def release_dates(self):
+        """
+        Method to retrieve list of release dates.
+        """
+        return list_strings_to_dates(self.call(["releases", "available"]))
 
     def query(
         self,
