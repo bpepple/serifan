@@ -1,3 +1,5 @@
+import datetime
+
 import pytest
 
 
@@ -25,3 +27,26 @@ def comic_list_response():
             },
         ]
     }
+
+
+@pytest.fixture()
+def sb_dates_response():
+    return {
+        "dates": [
+            "2021-07-29.",
+            "2021-08-04",
+            "2021-08-11",
+            "2021-08-18",
+            "2021-08-25",
+        ]
+    }
+
+
+@pytest.fixture()
+def sb_cleaned_dates():
+    return [
+        datetime.date(2021, 8, 4),
+        datetime.date(2021, 8, 11),
+        datetime.date(2021, 8, 18),
+        datetime.date(2021, 8, 25),
+    ]
