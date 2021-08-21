@@ -1,5 +1,6 @@
 import platform
-from typing import Optional
+from datetime import date
+from typing import List, Optional
 from urllib.parse import urlencode
 
 import requests
@@ -75,7 +76,7 @@ class Session:
         """
         return comics_list.ComicsList(self.call(["release_date", release_date], params={}))
 
-    def release_dates(self):
+    def release_dates(self) -> List[date]:
         """
         Method to retrieve list of release dates.
         """
