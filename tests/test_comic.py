@@ -1,6 +1,7 @@
 import datetime
 
-from serifan import api, comics_list, session, utils
+import pytest
+from serifan import api, comics_list, exceptions, session, utils
 
 
 def test_comics_list(comic_list_response):
@@ -24,6 +25,11 @@ def test_available_dates(sb_cleaned_dates, mocker):
     result = sb.available_release_dates()
     assert len(result) == 4
     assert result[0] == datetime.date(2021, 8, 4)
+
+
+def test_bad_response():
+    with pytest.raises(exceptions.ApiError):
+        comics_list.ComicsList({"comics": {"name": 1}})
 
 
 def test_list_string_to_date(sb_dates_response):
