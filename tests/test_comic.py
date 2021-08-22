@@ -17,14 +17,44 @@ def test_comics_list(comic_list_response):
     assert res[1].diamond_id == "MAY210140"
 
 
-def test_available_dates(sb_cleaned_dates, mocker):
-    mocker.patch.object(
-        session.Session, "available_release_dates", return_value=sb_cleaned_dates
-    )
+def test_available_dates(sb_dates_response, mocker):
+    mocker.patch.object(session.Session, "call", return_value=sb_dates_response)
     sb = api()
     result = sb.available_release_dates()
-    assert len(result) == 4
-    assert result[0] == datetime.date(2021, 8, 4)
+    assert len(result) == 5
+    assert result[0] == datetime.date(2021, 7, 29)
+
+
+def test_new_releases(comic_list_response, mocker):
+    mocker.patch.object(session.Session, "call", return_value=comic_list_response)
+    sb = api()
+    result = sb.new_releases()
+    assert len(result) == 2
+    assert result[0].title == "BITTER ROOT #15 CVR A GREENE (MR)"
+
+
+def test_previous_releases(comic_list_response, mocker):
+    mocker.patch.object(session.Session, "call", return_value=comic_list_response)
+    sb = api()
+    result = sb.previous_releases()
+    assert len(result) == 2
+    assert result[0].title == "BITTER ROOT #15 CVR A GREENE (MR)"
+
+
+def test_future_releases(comic_list_response, mocker):
+    mocker.patch.object(session.Session, "call", return_value=comic_list_response)
+    sb = api()
+    result = sb.future_releases()
+    assert len(result) == 2
+    assert result[0].title == "BITTER ROOT #15 CVR A GREENE (MR)"
+
+
+def test_query(comic_list_response, mocker):
+    mocker.patch.object(session.Session, "call", return_value=comic_list_response)
+    sb = api()
+    result = sb.query("Image", "WildC.A.T.S.", None, None)
+    assert len(result) == 2
+    assert result[0].title == "BITTER ROOT #15 CVR A GREENE (MR)"
 
 
 def test_bad_response():
