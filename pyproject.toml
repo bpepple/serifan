@@ -9,6 +9,9 @@ readme = "README.rst"
 packages = [
 	{ include = "serifan" },
 ]
+include = [
+    { path = "tests", format = "sdist" }
+]
 classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Intended Audience :: Developers",
