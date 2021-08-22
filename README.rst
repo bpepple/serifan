@@ -38,8 +38,7 @@ Example Usage
 
 Documentation
 -------------
-
-Coming soon!
+- `Read the project documentation <https://serifan.readthedocs.io/en/latest/>`_
  
 Bugs/Requests
 -------------
