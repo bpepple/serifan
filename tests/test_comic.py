@@ -1,6 +1,7 @@
 import datetime
 
 import pytest
+
 from serifan import api, comics_list, exceptions, session, utils
 
 

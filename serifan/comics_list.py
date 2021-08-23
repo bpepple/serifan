@@ -1,6 +1,6 @@
 from marshmallow import ValidationError
 
-from serifan import exceptions, comic
+from serifan import comic, exceptions
 
 
 class ComicsList:

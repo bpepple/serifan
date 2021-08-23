@@ -8,7 +8,7 @@ class Comic:
 
 
 class ComicSchema(Schema):
-    """ Schema for Comic api """
+    """Schema for Comic api"""
 
     publisher = fields.Str()
     description = fields.Str()
