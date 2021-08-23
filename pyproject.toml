@@ -61,3 +61,9 @@ known_third_party = ["marshmallow", "pytest", "requests"]
 
 [tool.poetry.extras]
 docs = ["sphinx-rtd-theme", "sphinxcontrib-napoleon"]
+
+[tool.coverage.run]
+source = ["serifan"]
+
+[tool.coverage.report]
+show_missing = true
