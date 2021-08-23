@@ -1,8 +1,4 @@
-from serifan import __version__, api, session
-
-
-def test_version():
-    assert __version__ == "0.1.0"
+from serifan import api, session
 
 
 def test_api():
