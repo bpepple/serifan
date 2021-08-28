@@ -25,8 +25,9 @@ class ComicSchema(Schema):
     def make_object(self, data, **kwargs):
         """
         Make the comic object.
+
         :param data: Data from Shortboxed response.
-        :returns: :class:`Comic` object
+        :return: :class:`Comic` object
         :rtype: Comic
         """
         return Comic(**data)
