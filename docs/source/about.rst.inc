@@ -1,4 +1,4 @@
-**serifan** is apython wrapper for the Shortboxed API.
+**serifan** is a python wrapper for the Shortboxed API.
 
 .. code-block:: python
 

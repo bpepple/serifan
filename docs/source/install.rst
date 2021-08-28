@@ -3,7 +3,7 @@
 Installation
 ============
 
-**serifan** requires Python >= 3.8. It has no external dependencies.
+**serifan** requires Python >= 3.8. It uses marshmallow and requests.
 
 Installing/Upgrading from the PyPI
 ----------------------------------
