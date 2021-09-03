@@ -1,3 +1,10 @@
+"""
+Utils module.
+
+This module provides the following functions:
+
+- list_strings_to_dates()
+"""
 from datetime import date
 from datetime import datetime as dt
 from typing import List
@@ -5,7 +12,7 @@ from typing import List
 
 def list_strings_to_dates(lst) -> List[date]:
     """
-    Function that takes a list of date strings and converts them to a list of date objects
+    Convert a list of date strings to a list of date objects.
 
     :param lst: A list of date strings
     :type params: list of str

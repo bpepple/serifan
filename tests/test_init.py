@@ -1,7 +1,13 @@
+"""
+Test Init module.
+
+This module contains tests for project init.
+"""
 from serifan import api, session
 
 
 def test_api():
+    """Test for api()."""
     sb = None
     try:
         sb = api()

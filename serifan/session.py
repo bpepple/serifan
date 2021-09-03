@@ -1,3 +1,10 @@
+"""
+Session module.
+
+This module provides the following classes:
+
+- Session
+"""
 import platform
 from datetime import date
 from typing import List, Optional
@@ -11,11 +18,10 @@ from .utils import list_strings_to_dates
 
 
 class Session:
-    """
-    Session to request api endpoints
-    """
+    """Session to request api endpoints."""
 
     def __init__(self) -> None:
+        """Intialize a new Session."""
         self.header = {
             "User-Agent": f"Serifan/{__version__} ({platform.system()}; {platform.release()})"
         }
@@ -23,7 +29,8 @@ class Session:
 
     def call(self, endpoint, params=None):
         """
-        Method to make request for api endpoints.
+        Make request for api endpoints.
+
         :param str endpoint: The endpoint to request information from.
         :param dict params: Parameters to add to the request.
         """
@@ -39,7 +46,7 @@ class Session:
 
     def new_releases(self) -> comics_list.ComicsList:
         """
-        Method to request a list of this weeks current new release comics.
+        Request a list of this weeks current new release comics.
 
         :return: A list of :class:`Comic` objects.
         :rtype: ComicsList
@@ -48,7 +55,7 @@ class Session:
 
     def previous_releases(self) -> comics_list.ComicsList:
         """
-        Method to request a list of the previous weeks released comics.
+        Request a list of the previous weeks released comics.
 
         :return: A list of :class:`Comic` objects.
         :rtype: ComicsList
@@ -57,7 +64,7 @@ class Session:
 
     def future_releases(self) -> comics_list.ComicsList:
         """
-        Method to request a list of the next weeks comics.
+        Request a list of the next weeks comics.
 
         :return: A list of :class:`Comic` objects.
         :rtype: ComicsList
@@ -66,7 +73,7 @@ class Session:
 
     def release_date(self, release_date: str) -> comics_list.ComicsList:
         """
-        Method to request comics with a specific release date.
+        Request comics with a specific release date.
 
         :param release_date: Date comics where released in iso8601 format (ie: 2016-02-17).
         :type params: str
@@ -77,9 +84,7 @@ class Session:
         return comics_list.ComicsList(self.call(["release_date", release_date], params={}))
 
     def available_release_dates(self) -> List[date]:
-        """
-        Method to retrieve list of release dates.
-        """
+        """Retrieve list of release dates."""
         return list_strings_to_dates(self.call(["releases", "available"]))
 
     def query(
@@ -90,7 +95,7 @@ class Session:
         release_date: Optional[str] = None,
     ) -> comics_list.ComicsList:
         """
-        Method to search for a list of comics.
+        Search for a list of comics.
 
         :param publisher: Publisher to search by.
         :type params: str, optional
