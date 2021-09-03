@@ -4,8 +4,6 @@ Exceptions module.
 This module provides the following classes:
 
 - ApiError
-- AuthenticationError
-- CacheError
 """
 
 
