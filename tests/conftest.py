@@ -1,3 +1,8 @@
+"""
+Conftest module.
+
+This module contains pytest fixtures.
+"""
 import datetime
 
 import pytest
@@ -5,6 +10,7 @@ import pytest
 
 @pytest.fixture(scope="session")
 def comic_list_response():
+    """Comic list response fixture."""
     return {
         "comics": [
             {
@@ -31,6 +37,7 @@ def comic_list_response():
 
 @pytest.fixture(scope="session")
 def sb_dates_response():
+    """Fixture of date strings."""
     return {
         "dates": [
             "2021-07-29.",
@@ -44,6 +51,7 @@ def sb_dates_response():
 
 @pytest.fixture(scope="session")
 def sb_cleaned_dates():
+    """Fixture of date objects."""
     return [
         datetime.date(2021, 8, 4),
         datetime.date(2021, 8, 11),
