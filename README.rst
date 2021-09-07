@@ -2,6 +2,15 @@
 Serifan
 =======
 
+.. image:: https://img.shields.io/pypi/v/serifan.svg?logo=PyPI&label=Version&style=flat-square   :alt: PyPI
+    :target: https://pypi.org/project/serifan
+
+.. image:: https://img.shields.io/pypi/pyversions/serifan.svg?logo=Python&label=Python-Versions&style=flat-square
+    :target: https://pypi.org/project/serifan
+
+.. image:: https://img.shields.io/github/license/bpepple/serifan
+    :target: https://opensource.org/licenses/GPL-3.0  
+
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
 
