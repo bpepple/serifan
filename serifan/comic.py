@@ -6,7 +6,7 @@ This module provides the following classes:
 - Comic
 - ComicSchema
 """
-from marshmallow import INCLUDE, Schema, fields, post_load
+from marshmallow import INCLUDE, Schema, fields, post_load, pre_load
 
 
 class Comic:
@@ -23,12 +23,17 @@ class Comic:
 
 
 class ComicSchema(Schema):
-    """Schema for Comic api."""
+    """
+    Schema for Comic api.
+
+    .. versionchanged:: 1.0.0
+        Changed ``price`` field to a ``Decimal`` type.
+    """
 
     publisher = fields.Str()
     description = fields.Str()
     title = fields.Str()
-    price = fields.Str()
+    price = fields.Decimal(places=2)
     creators = fields.Str()
     release_date = fields.Date(format="%Y-%m-%d")
     diamond_id = fields.Str()
@@ -37,6 +42,16 @@ class ComicSchema(Schema):
         """Any unknown fields will be included."""
 
         unknown = INCLUDE
+
+    @pre_load
+    def process_input(self, data, **kwargs):
+        """Strip the dollar sign from the price before loading the data."""
+        new_data = data
+
+        if "price" in new_data:
+            new_data["price"] = new_data["price"].strip("$")
+
+        return new_data
 
     @post_load
     def make_object(self, data, **kwargs):
