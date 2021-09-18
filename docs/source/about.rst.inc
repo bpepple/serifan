@@ -12,12 +12,3 @@
     # Print the results
     for i in results:
         print(f"{i.title}")
-
-
-Get It Now
-==========
-
-
-.. code-block:: bash
-
-    $ pip3 install --user serifan
