@@ -7,6 +7,8 @@ import datetime
 from decimal import Decimal
 
 import pytest
+import requests_mock
+from requests.exceptions import HTTPError
 
 from serifan import api, comics_list, exceptions, session, utils
 
@@ -81,3 +83,13 @@ def test_list_string_to_date(sb_dates_response):
     results = utils.list_strings_to_dates(sb_dates_response)
     assert len(results) == 5
     assert results[0] == datetime.date(2021, 7, 29)
+
+
+def test_for_shortboxed_internal_server_error():
+    """Test for Shortboxed 500 response code."""
+    with requests_mock.mock() as m:
+        m.get(requests_mock.ANY, status_code=500, text="Shortboxed Internal Server Error")
+
+        with pytest.raises(HTTPError):
+            sb = api()
+            sb.available_release_dates()

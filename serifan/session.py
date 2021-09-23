@@ -42,6 +42,9 @@ class Session:
         except requests.exceptions.ConnectionError as e:
             raise exceptions.ApiError("Connection error: {}".format(repr(e)))
 
+        if (response.status_code >= 500) and (response.status_code < 600):
+            raise requests.HTTPError(f"Shortboxed Server Error: {response.status_code}")
+
         return response.json()
 
     def new_releases(self) -> comics_list.ComicsList:
