@@ -1,3 +1,4 @@
+"""Documentation configuration."""
 # Configuration file for the Sphinx documentation builder.
 #
 # This file only contains a selection of the most common options. For a full
@@ -14,7 +15,7 @@ import sys
 
 sys.path.insert(0, os.path.abspath("../.."))
 # This import needs to be *after* setting the sys path
-import serifan
+import serifan  # noqa #E402
 
 # -- Project information -----------------------------------------------------
 
