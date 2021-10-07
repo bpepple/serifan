@@ -8,7 +8,6 @@ from decimal import Decimal
 
 import pytest
 import requests_mock
-from requests.exceptions import HTTPError
 
 from serifan import api, comics_list, exceptions, session, utils
 
@@ -90,6 +89,6 @@ def test_for_shortboxed_internal_server_error():
     with requests_mock.mock() as m:
         m.get(requests_mock.ANY, status_code=500, text="Shortboxed Internal Server Error")
 
-        with pytest.raises(HTTPError):
+        with pytest.raises(exceptions.ApiError):
             sb = api()
             sb.available_release_dates()

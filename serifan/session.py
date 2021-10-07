@@ -43,7 +43,7 @@ class Session:
             raise exceptions.ApiError(f"Connection error: {repr(e)}")
 
         if (response.status_code >= 500) and (response.status_code < 600):
-            raise requests.HTTPError(f"Shortboxed Server Error: {response.status_code}")
+            raise exceptions.ApiError(f"Shortboxed Server Error: {response.status_code}")
 
         data = response.json()
 
