@@ -45,7 +45,12 @@ class Session:
         if (response.status_code >= 500) and (response.status_code < 600):
             raise requests.HTTPError(f"Shortboxed Server Error: {response.status_code}")
 
-        return response.json()
+        data = response.json()
+
+        if "error" in data:
+            raise exceptions.ApiError(f"Error: {data['error']}")
+
+        return data
 
     def new_releases(self) -> comics_list.ComicsList:
         """
