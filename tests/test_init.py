@@ -12,6 +12,6 @@ def test_api():
     try:
         sb = api()
     except Exception as exc:
-        print("serifan.api() raised {} unexpectedly!".format(exc))
+        print(f"serifan.api() raised {exc} unexpectedly!")
 
     assert sb.__class__.__name__ == session.Session.__name__

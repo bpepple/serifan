@@ -40,7 +40,7 @@ class Session:
         try:
             response = requests.get(url, params=params, headers=self.header)
         except requests.exceptions.ConnectionError as e:
-            raise exceptions.ApiError("Connection error: {}".format(repr(e)))
+            raise exceptions.ApiError(f"Connection error: {repr(e)}")
 
         if (response.status_code >= 500) and (response.status_code < 600):
             raise requests.HTTPError(f"Shortboxed Server Error: {response.status_code}")
