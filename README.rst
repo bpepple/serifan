@@ -47,7 +47,7 @@ Example Usage
 
 Documentation
 -------------
-- `Read the project documentation <https://serifan.readthedocs.io/en/latest/>`_
+- `Read the project documentation <https://serifan.readthedocs.io/en/stable/>`_
  
 Bugs/Requests
 -------------
