@@ -39,14 +39,4 @@ def is_decimal(string: str) -> bool:
         Decimal(string)
         return True
     except (ValueError, DecimalException):
-        pass
-
-    try:
-        import unicodedata
-
-        unicodedata.decimal(string)
-        return True
-    except (TypeError, ValueError):
-        pass
-
-    return False
+        return False
