@@ -1,5 +1,5 @@
 """Project entry file."""
-__version__ = "1.0.4"
+__version__ = "1.0.6"
 __all__ = ["api"]
 
 from serifan import session
