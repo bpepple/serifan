@@ -4,6 +4,7 @@ Utils module.
 This module provides the following functions:
 
 - list_strings_to_dates()
+- is_decimal()
 """
 from datetime import date
 from datetime import datetime as dt
