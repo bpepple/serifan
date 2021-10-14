@@ -8,6 +8,8 @@ This module provides the following classes:
 """
 from marshmallow import INCLUDE, Schema, fields, post_load, pre_load
 
+from .utils import is_decimal
+
 
 class Comic:
     """
@@ -50,6 +52,8 @@ class ComicSchema(Schema):
 
         if "price" in new_data:
             new_data["price"] = new_data["price"].strip("$")
+            if not is_decimal(new_data["price"]):
+                new_data["price"] = "0.00"
 
         return new_data
 

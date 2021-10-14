@@ -31,6 +31,15 @@ def comic_list_response():
                 "release_date": "2021-08-11",
                 "diamond_id": "MAY210140",
             },
+            {
+                "publisher": "MARVEL COMICS",
+                "description": "A NEW DAREDEVIL RISES TO PROTECT HELL'S KITCHEN! Matt Murdock is a killer - but while he's serving his time as the masked vigilante called Daredevil, Hell's Kitchen has suddenly been left without a guardian devil. Or it was, until ELEKTRA NATCHIOS took it upon herself to protect Murdock's neighborhood and his legacy as the NEW DAREDEVIL! But she's already got her work cut out for her: WILSON FISK remains seated as New York's mayor, with TYPHOID MARY, THE OWL, HAMMERHEAD and other lethal - and FAMILIAR - foes at his beck and call...  Rated T+",  # noqa : E501
+                "title": "DAREDEVIL #1 HALLOWEEN COMIC EXTRAVAGANZA 2021",
+                "price": "$PI",
+                "creators": "(W) Chip Zdarsky (A/CA) Marco Checchetto",
+                "release_date": "2021-10-20",
+                "diamond_id": "JUL219364",
+            },
         ]
     }
 
